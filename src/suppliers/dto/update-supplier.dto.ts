@@ -3,7 +3,7 @@ import { IsOptional, IsString } from 'class-validator';
 export class UpdateSupplierDto {
   @IsOptional()
   @IsString()
-  name?: string;
+  nome?: string;
 
   @IsOptional()
   @IsString()
@@ -11,9 +11,9 @@ export class UpdateSupplierDto {
 
   @IsOptional()
   @IsString()
-  address?: string;
+  endereco?: string;
 
   @IsOptional()
   @IsString()
-  contact?: string;
+  contato?: string;
 }

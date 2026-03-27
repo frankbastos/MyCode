@@ -8,22 +8,22 @@ Backend em NestJS com SQLite para testes locais.
 
 ### Endpoints
 
-- `POST /products`
-- `GET /products`
-- `GET /products/:id`
-- `PATCH /products/:id`
-- `DELETE /products/:id`
-- `POST /suppliers`
-- `GET /suppliers`
-- `GET /suppliers/:id`
-- `PATCH /suppliers/:id`
-- `DELETE /suppliers/:id`
-- `POST /product-suppliers`
-- `DELETE /product-suppliers/:productId/:supplierId`
-- `GET /product-suppliers/products/:productId/suppliers`
-- `GET /product-suppliers/suppliers/:supplierId/products`
+- `POST /produtos`
+- `GET /produtos`
+- `GET /produtos/:id`
+- `PATCH /produtos/:id`
+- `DELETE /produtos/:id`
+- `POST /fornecedores`
+- `GET /fornecedores`
+- `GET /fornecedores/:id`
+- `PATCH /fornecedores/:id`
+- `DELETE /fornecedores/:id`
+- `POST /produto-fornecedores`
+- `DELETE /produto-fornecedores/:produtoId/:fornecedorId`
+- `GET /produto-fornecedores/produtos/:produtoId/fornecedores`
+- `GET /produto-fornecedores/fornecedores/:fornecedorId/produtos`
 
-### Execucao
+### Execução
 
 ```bash
 npm install

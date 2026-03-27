@@ -10,7 +10,7 @@ import {
 import { ManageProductSupplierDto } from './dto/manage-product-supplier.dto';
 import { ProductSuppliersService } from './product-suppliers.service';
 
-@Controller('product-suppliers')
+@Controller('produto-fornecedores')
 export class ProductSuppliersController {
   constructor(
     private readonly productSuppliersService: ProductSuppliersService,
@@ -19,28 +19,28 @@ export class ProductSuppliersController {
   @Post()
   associate(@Body() manageProductSupplierDto: ManageProductSupplierDto) {
     return this.productSuppliersService.associate(
-      manageProductSupplierDto.productId,
-      manageProductSupplierDto.supplierId,
+      manageProductSupplierDto.produtoId,
+      manageProductSupplierDto.fornecedorId,
     );
   }
 
-  @Delete(':productId/:supplierId')
+  @Delete(':produtoId/:fornecedorId')
   removeAssociation(
-    @Param('productId', ParseIntPipe) productId: number,
-    @Param('supplierId', ParseIntPipe) supplierId: number,
+    @Param('produtoId', ParseIntPipe) produtoId: number,
+    @Param('fornecedorId', ParseIntPipe) fornecedorId: number,
   ) {
-    return this.productSuppliersService.removeAssociation(productId, supplierId);
+    return this.productSuppliersService.removeAssociation(produtoId, fornecedorId);
   }
 
-  @Get('products/:productId/suppliers')
-  findSuppliersByProduct(@Param('productId', ParseIntPipe) productId: number) {
-    return this.productSuppliersService.findSuppliersByProduct(productId);
+  @Get('produtos/:produtoId/fornecedores')
+  findSuppliersByProduct(@Param('produtoId', ParseIntPipe) produtoId: number) {
+    return this.productSuppliersService.findSuppliersByProduct(produtoId);
   }
 
-  @Get('suppliers/:supplierId/products')
+  @Get('fornecedores/:fornecedorId/produtos')
   findProductsBySupplier(
-    @Param('supplierId', ParseIntPipe) supplierId: number,
+    @Param('fornecedorId', ParseIntPipe) fornecedorId: number,
   ) {
-    return this.productSuppliersService.findProductsBySupplier(supplierId);
+    return this.productSuppliersService.findProductsBySupplier(fornecedorId);
   }
 }

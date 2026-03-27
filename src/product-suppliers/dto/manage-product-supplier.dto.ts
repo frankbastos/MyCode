@@ -3,9 +3,9 @@ import { IsInt, IsPositive } from 'class-validator';
 export class ManageProductSupplierDto {
   @IsInt()
   @IsPositive()
-  productId: number;
+  produtoId: number;
 
   @IsInt()
   @IsPositive()
-  supplierId: number;
+  fornecedorId: number;
 }

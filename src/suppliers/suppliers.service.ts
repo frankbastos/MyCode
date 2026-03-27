@@ -20,7 +20,7 @@ export class SuppliersService {
   async findAll(): Promise<Supplier[]> {
     return this.suppliersRepository.find({
       relations: {
-        products: true,
+        produtos: true,
       },
       order: {
         id: 'ASC',
@@ -32,12 +32,12 @@ export class SuppliersService {
     const supplier = await this.suppliersRepository.findOne({
       where: { id },
       relations: {
-        products: true,
+        produtos: true,
       },
     });
 
     if (!supplier) {
-      throw new NotFoundException(`Fornecedor ${id} nao encontrado.`);
+      throw new NotFoundException(`Fornecedor ${id} não encontrado.`);
     }
 
     return supplier;
@@ -54,7 +54,7 @@ export class SuppliersService {
 
   async remove(id: number): Promise<{ message: string }> {
     const supplier = await this.findOne(id);
-    supplier.products = [];
+    supplier.produtos = [];
     await this.suppliersRepository.save(supplier);
     await this.suppliersRepository.remove(supplier);
 

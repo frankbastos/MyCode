@@ -8,18 +8,18 @@ import {
 export class UpdateProductDto {
   @IsOptional()
   @IsString()
-  name?: string;
+  nome?: string;
 
   @IsOptional()
   @IsString()
-  description?: string;
+  descricao?: string;
 
   @IsOptional()
   @IsNumber({ maxDecimalPlaces: 2 })
   @IsPositive()
-  price?: number;
+  preco?: number;
 
   @IsOptional()
   @IsString()
-  barcode?: string;
+  codigoBarras?: string;
 }

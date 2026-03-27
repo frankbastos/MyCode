@@ -3,7 +3,7 @@ import { IsNotEmpty, IsString } from 'class-validator';
 export class CreateSupplierDto {
   @IsString()
   @IsNotEmpty()
-  name: string;
+  nome: string;
 
   @IsString()
   @IsNotEmpty()
@@ -11,9 +11,9 @@ export class CreateSupplierDto {
 
   @IsString()
   @IsNotEmpty()
-  address: string;
+  endereco: string;
 
   @IsString()
   @IsNotEmpty()
-  contact: string;
+  contato: string;
 }

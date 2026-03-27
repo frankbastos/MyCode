@@ -6,23 +6,23 @@ import {
 } from 'typeorm';
 import { Product } from '../products/product.entity';
 
-@Entity('suppliers')
+@Entity('fornecedores')
 export class Supplier {
   @PrimaryGeneratedColumn()
   id: number;
 
   @Column()
-  name: string;
+  nome: string;
 
   @Column({ unique: true })
   cnpj: string;
 
   @Column()
-  address: string;
+  endereco: string;
 
   @Column()
-  contact: string;
+  contato: string;
 
-  @ManyToMany(() => Product, (product) => product.suppliers)
-  products: Product[];
+  @ManyToMany(() => Product, (produto) => produto.fornecedores)
+  produtos: Product[];
 }

@@ -9,8 +9,8 @@
       "parentId": null,
       "modified": 1774607400000,
       "created": 1774607400000,
-      "name": "MyCode API",
-      "description": "Colecao para testar a API Nest com SQLite",
+      "name": "API MyCode",
+      "description": "Coleção para testar a API Nest com SQLite em português do Brasil",
       "scope": "collection",
       "_type": "workspace"
     },
@@ -19,7 +19,7 @@
       "parentId": "wrk_mycode",
       "modified": 1774607400000,
       "created": 1774607400000,
-      "name": "Base Environment",
+      "name": "Ambiente Base",
       "data": {
         "base_url": "http://localhost:3000"
       },
@@ -34,11 +34,11 @@
       "_type": "environment"
     },
     {
-      "_id": "fld_products",
+      "_id": "fld_produtos",
       "parentId": "wrk_mycode",
       "modified": 1774607400000,
       "created": 1774607400000,
-      "name": "Products",
+      "name": "Produtos",
       "description": "",
       "environment": {},
       "environmentPropertyOrder": null,
@@ -47,16 +47,16 @@
     },
     {
       "_id": "req_create_product",
-      "parentId": "fld_products",
+      "parentId": "fld_produtos",
       "modified": 1774607400000,
       "created": 1774607400000,
-      "url": "{{ base_url }}/products",
-      "name": "Create Product",
+      "url": "{{ base_url }}/produtos",
+      "name": "Criar Produto",
       "description": "",
       "method": "POST",
       "body": {
         "mimeType": "application/json",
-        "text": "{\n  \"name\": \"Notebook\",\n  \"description\": \"Notebook para testes\",\n  \"price\": 3500.99,\n  \"barcode\": \"7890001112223\"\n}"
+        "text": "{\n  \"nome\": \"Notebook\",\n  \"descricao\": \"Notebook para testes\",\n  \"preco\": 3500.99,\n  \"codigoBarras\": \"7890001112223\"\n}"
       },
       "parameters": [],
       "headers": [
@@ -77,12 +77,12 @@
       "_type": "request"
     },
     {
-      "_id": "req_list_products",
-      "parentId": "fld_products",
+      "_id": "req_list_produtos",
+      "parentId": "fld_produtos",
       "modified": 1774607400000,
       "created": 1774607400000,
-      "url": "{{ base_url }}/products",
-      "name": "List Products",
+      "url": "{{ base_url }}/produtos",
+      "name": "Listar Produtos",
       "description": "",
       "method": "GET",
       "body": {},
@@ -100,11 +100,11 @@
       "_type": "request"
     },
     {
-      "_id": "fld_suppliers",
+      "_id": "fld_fornecedores",
       "parentId": "wrk_mycode",
       "modified": 1774607400000,
       "created": 1774607400000,
-      "name": "Suppliers",
+      "name": "Fornecedores",
       "description": "",
       "environment": {},
       "environmentPropertyOrder": null,
@@ -113,16 +113,16 @@
     },
     {
       "_id": "req_create_supplier",
-      "parentId": "fld_suppliers",
+      "parentId": "fld_fornecedores",
       "modified": 1774607400000,
       "created": 1774607400000,
-      "url": "{{ base_url }}/suppliers",
-      "name": "Create Supplier",
+      "url": "{{ base_url }}/fornecedores",
+      "name": "Criar Fornecedor",
       "description": "",
       "method": "POST",
       "body": {
         "mimeType": "application/json",
-        "text": "{\n  \"name\": \"Fornecedor Centro\",\n  \"cnpj\": \"12.345.678/0001-90\",\n  \"address\": \"Rua Central, 100\",\n  \"contact\": \"contato@fornecedor.com\"\n}"
+        "text": "{\n  \"nome\": \"Fornecedor Centro\",\n  \"cnpj\": \"12.345.678/0001-90\",\n  \"endereco\": \"Rua Central, 100\",\n  \"contato\": \"contato@fornecedor.com\"\n}"
       },
       "parameters": [],
       "headers": [
@@ -143,12 +143,12 @@
       "_type": "request"
     },
     {
-      "_id": "req_list_suppliers",
-      "parentId": "fld_suppliers",
+      "_id": "req_list_fornecedores",
+      "parentId": "fld_fornecedores",
       "modified": 1774607400000,
       "created": 1774607400000,
-      "url": "{{ base_url }}/suppliers",
-      "name": "List Suppliers",
+      "url": "{{ base_url }}/fornecedores",
+      "name": "Listar Fornecedores",
       "description": "",
       "method": "GET",
       "body": {},
@@ -170,7 +170,7 @@
       "parentId": "wrk_mycode",
       "modified": 1774607400000,
       "created": 1774607400000,
-      "name": "Product Suppliers",
+      "name": "Associação Produto/Fornecedor",
       "description": "",
       "environment": {},
       "environmentPropertyOrder": null,
@@ -182,13 +182,13 @@
       "parentId": "fld_links",
       "modified": 1774607400000,
       "created": 1774607400000,
-      "url": "{{ base_url }}/product-suppliers",
-      "name": "Associate Product Supplier",
+      "url": "{{ base_url }}/produto-fornecedores",
+      "name": "Associar Produto Fornecedor",
       "description": "",
       "method": "POST",
       "body": {
         "mimeType": "application/json",
-        "text": "{\n  \"productId\": 1,\n  \"supplierId\": 1\n}"
+        "text": "{\n  \"produtoId\": 1,\n  \"fornecedorId\": 1\n}"
       },
       "parameters": [],
       "headers": [
@@ -209,12 +209,12 @@
       "_type": "request"
     },
     {
-      "_id": "req_suppliers_by_product",
+      "_id": "req_fornecedores_por_produto",
       "parentId": "fld_links",
       "modified": 1774607400000,
       "created": 1774607400000,
-      "url": "{{ base_url }}/product-suppliers/products/1/suppliers",
-      "name": "Get Suppliers By Product",
+      "url": "{{ base_url }}/produto-fornecedores/produtos/1/fornecedores",
+      "name": "Buscar Fornecedores por Produto",
       "description": "",
       "method": "GET",
       "body": {},
@@ -232,12 +232,12 @@
       "_type": "request"
     },
     {
-      "_id": "req_products_by_supplier",
+      "_id": "req_produtos_por_fornecedor",
       "parentId": "fld_links",
       "modified": 1774607400000,
       "created": 1774607400000,
-      "url": "{{ base_url }}/product-suppliers/suppliers/1/products",
-      "name": "Get Products By Supplier",
+      "url": "{{ base_url }}/produto-fornecedores/fornecedores/1/produtos",
+      "name": "Buscar Produtos por Fornecedor",
       "description": "",
       "method": "GET",
       "body": {},

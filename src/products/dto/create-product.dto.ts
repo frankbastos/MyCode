@@ -9,17 +9,17 @@ import {
 export class CreateProductDto {
   @IsString()
   @IsNotEmpty()
-  name: string;
+  nome: string;
 
   @IsOptional()
   @IsString()
-  description?: string;
+  descricao?: string;
 
   @IsNumber({ maxDecimalPlaces: 2 })
   @IsPositive()
-  price: number;
+  preco: number;
 
   @IsString()
   @IsNotEmpty()
-  barcode: string;
+  codigoBarras: string;
 }

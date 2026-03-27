@@ -20,7 +20,7 @@ export class ProductsService {
   async findAll(): Promise<Product[]> {
     return this.productsRepository.find({
       relations: {
-        suppliers: true,
+        fornecedores: true,
       },
       order: {
         id: 'ASC',
@@ -32,12 +32,12 @@ export class ProductsService {
     const product = await this.productsRepository.findOne({
       where: { id },
       relations: {
-        suppliers: true,
+        fornecedores: true,
       },
     });
 
     if (!product) {
-      throw new NotFoundException(`Produto ${id} nao encontrado.`);
+      throw new NotFoundException(`Produto ${id} não encontrado.`);
     }
 
     return product;
@@ -51,7 +51,7 @@ export class ProductsService {
 
   async remove(id: number): Promise<{ message: string }> {
     const product = await this.findOne(id);
-    product.suppliers = [];
+    product.fornecedores = [];
     await this.productsRepository.save(product);
     await this.productsRepository.remove(product);
 

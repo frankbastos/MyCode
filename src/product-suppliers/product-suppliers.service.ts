@@ -13,71 +13,71 @@ export class ProductSuppliersService {
     private readonly suppliersRepository: Repository<Supplier>,
   ) {}
 
-  async associate(productId: number, supplierId: number): Promise<Product> {
-    const product = await this.findProduct(productId);
-    const supplier = await this.findSupplier(supplierId);
+  async associate(produtoId: number, fornecedorId: number): Promise<Product> {
+    const product = await this.findProduct(produtoId);
+    const supplier = await this.findSupplier(fornecedorId);
 
-    const alreadyAssociated = product.suppliers.some(
+    const alreadyAssociated = product.fornecedores.some(
       (item) => item.id === supplier.id,
     );
 
     if (!alreadyAssociated) {
-      product.suppliers.push(supplier);
+      product.fornecedores.push(supplier);
       await this.productsRepository.save(product);
     }
 
-    return this.findProduct(productId);
+    return this.findProduct(produtoId);
   }
 
   async removeAssociation(
-    productId: number,
-    supplierId: number,
+    produtoId: number,
+    fornecedorId: number,
   ): Promise<{ message: string }> {
-    const product = await this.findProduct(productId);
-    const hasAssociation = product.suppliers.some(
-      (supplier) => supplier.id === supplierId,
+    const product = await this.findProduct(produtoId);
+    const hasAssociation = product.fornecedores.some(
+      (supplier) => supplier.id === fornecedorId,
     );
 
     if (!hasAssociation) {
       throw new NotFoundException(
-        `Associacao entre produto ${productId} e fornecedor ${supplierId} nao encontrada.`,
+        `Associação entre produto ${produtoId} e fornecedor ${fornecedorId} não encontrada.`,
       );
     }
 
-    product.suppliers = product.suppliers.filter(
-      (supplier) => supplier.id !== supplierId,
+    product.fornecedores = product.fornecedores.filter(
+      (supplier) => supplier.id !== fornecedorId,
     );
     await this.productsRepository.save(product);
 
     return {
-      message: `Associacao entre produto ${productId} e fornecedor ${supplierId} removida com sucesso.`,
+      message: `Associação entre produto ${produtoId} e fornecedor ${fornecedorId} removida com sucesso.`,
     };
   }
 
-  async findSuppliersByProduct(productId: number): Promise<Supplier[]> {
-    const product = await this.findProduct(productId);
-    return product.suppliers;
+  async findSuppliersByProduct(produtoId: number): Promise<Supplier[]> {
+    const product = await this.findProduct(produtoId);
+    return product.fornecedores;
   }
 
-  async findProductsBySupplier(supplierId: number): Promise<Product[]> {
-    const supplier = await this.findSupplier(supplierId);
-    return supplier.products;
+  async findProductsBySupplier(fornecedorId: number): Promise<Product[]> {
+    const supplier = await this.findSupplier(fornecedorId);
+    return supplier.produtos;
   }
 
   private async findProduct(id: number): Promise<Product> {
     const product = await this.productsRepository.findOne({
       where: { id },
       relations: {
-        suppliers: true,
+        fornecedores: true,
       },
     });
 
     if (!product) {
-      throw new NotFoundException(`Produto ${id} nao encontrado.`);
+      throw new NotFoundException(`Produto ${id} não encontrado.`);
     }
 
-    if (!product.suppliers) {
-      product.suppliers = [];
+    if (!product.fornecedores) {
+      product.fornecedores = [];
     }
 
     return product;
@@ -87,16 +87,16 @@ export class ProductSuppliersService {
     const supplier = await this.suppliersRepository.findOne({
       where: { id },
       relations: {
-        products: true,
+        produtos: true,
       },
     });
 
     if (!supplier) {
-      throw new NotFoundException(`Fornecedor ${id} nao encontrado.`);
+      throw new NotFoundException(`Fornecedor ${id} não encontrado.`);
     }
 
-    if (!supplier.products) {
-      supplier.products = [];
+    if (!supplier.produtos) {
+      supplier.produtos = [];
     }
 
     return supplier;

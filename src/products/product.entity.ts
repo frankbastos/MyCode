@@ -7,28 +7,28 @@ import {
 } from 'typeorm';
 import { Supplier } from '../suppliers/supplier.entity';
 
-@Entity('products')
+@Entity('produtos')
 export class Product {
   @PrimaryGeneratedColumn()
   id: number;
 
   @Column()
-  name: string;
+  nome: string;
 
   @Column({ nullable: true })
-  description?: string;
+  descricao?: string;
 
   @Column('float')
-  price: number;
+  preco: number;
 
   @Column({ unique: true })
-  barcode: string;
+  codigoBarras: string;
 
-  @ManyToMany(() => Supplier, (supplier) => supplier.products)
+  @ManyToMany(() => Supplier, (fornecedor) => fornecedor.produtos)
   @JoinTable({
-    name: 'product_suppliers',
-    joinColumn: { name: 'product_id', referencedColumnName: 'id' },
-    inverseJoinColumn: { name: 'supplier_id', referencedColumnName: 'id' },
+    name: 'produto_fornecedores',
+    joinColumn: { name: 'produto_id', referencedColumnName: 'id' },
+    inverseJoinColumn: { name: 'fornecedor_id', referencedColumnName: 'id' },
   })
-  suppliers: Supplier[];
+  fornecedores: Supplier[];
 }
