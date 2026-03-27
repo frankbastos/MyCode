@@ -1,0 +1,258 @@
+{
+  "_type": "export",
+  "__export_format": 4,
+  "__export_date": "2026-03-27T10:30:00.000Z",
+  "__export_source": "codex.desktop",
+  "resources": [
+    {
+      "_id": "wrk_mycode",
+      "parentId": null,
+      "modified": 1774607400000,
+      "created": 1774607400000,
+      "name": "MyCode API",
+      "description": "Colecao para testar a API Nest com SQLite",
+      "scope": "collection",
+      "_type": "workspace"
+    },
+    {
+      "_id": "env_mycode",
+      "parentId": "wrk_mycode",
+      "modified": 1774607400000,
+      "created": 1774607400000,
+      "name": "Base Environment",
+      "data": {
+        "base_url": "http://localhost:3000"
+      },
+      "dataPropertyOrder": {
+        "&": [
+          "base_url"
+        ]
+      },
+      "color": null,
+      "isPrivate": false,
+      "metaSortKey": 1774607400000,
+      "_type": "environment"
+    },
+    {
+      "_id": "fld_products",
+      "parentId": "wrk_mycode",
+      "modified": 1774607400000,
+      "created": 1774607400000,
+      "name": "Products",
+      "description": "",
+      "environment": {},
+      "environmentPropertyOrder": null,
+      "metaSortKey": 1774607400100,
+      "_type": "request_group"
+    },
+    {
+      "_id": "req_create_product",
+      "parentId": "fld_products",
+      "modified": 1774607400000,
+      "created": 1774607400000,
+      "url": "{{ base_url }}/products",
+      "name": "Create Product",
+      "description": "",
+      "method": "POST",
+      "body": {
+        "mimeType": "application/json",
+        "text": "{\n  \"name\": \"Notebook\",\n  \"description\": \"Notebook para testes\",\n  \"price\": 3500.99,\n  \"barcode\": \"7890001112223\"\n}"
+      },
+      "parameters": [],
+      "headers": [
+        {
+          "name": "Content-Type",
+          "value": "application/json"
+        }
+      ],
+      "authentication": {},
+      "metaSortKey": 1774607400200,
+      "isPrivate": false,
+      "settingStoreCookies": true,
+      "settingSendCookies": true,
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingRebuildPath": true,
+      "settingFollowRedirects": "global",
+      "_type": "request"
+    },
+    {
+      "_id": "req_list_products",
+      "parentId": "fld_products",
+      "modified": 1774607400000,
+      "created": 1774607400000,
+      "url": "{{ base_url }}/products",
+      "name": "List Products",
+      "description": "",
+      "method": "GET",
+      "body": {},
+      "parameters": [],
+      "headers": [],
+      "authentication": {},
+      "metaSortKey": 1774607400300,
+      "isPrivate": false,
+      "settingStoreCookies": true,
+      "settingSendCookies": true,
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingRebuildPath": true,
+      "settingFollowRedirects": "global",
+      "_type": "request"
+    },
+    {
+      "_id": "fld_suppliers",
+      "parentId": "wrk_mycode",
+      "modified": 1774607400000,
+      "created": 1774607400000,
+      "name": "Suppliers",
+      "description": "",
+      "environment": {},
+      "environmentPropertyOrder": null,
+      "metaSortKey": 1774607400400,
+      "_type": "request_group"
+    },
+    {
+      "_id": "req_create_supplier",
+      "parentId": "fld_suppliers",
+      "modified": 1774607400000,
+      "created": 1774607400000,
+      "url": "{{ base_url }}/suppliers",
+      "name": "Create Supplier",
+      "description": "",
+      "method": "POST",
+      "body": {
+        "mimeType": "application/json",
+        "text": "{\n  \"name\": \"Fornecedor Centro\",\n  \"cnpj\": \"12.345.678/0001-90\",\n  \"address\": \"Rua Central, 100\",\n  \"contact\": \"contato@fornecedor.com\"\n}"
+      },
+      "parameters": [],
+      "headers": [
+        {
+          "name": "Content-Type",
+          "value": "application/json"
+        }
+      ],
+      "authentication": {},
+      "metaSortKey": 1774607400500,
+      "isPrivate": false,
+      "settingStoreCookies": true,
+      "settingSendCookies": true,
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingRebuildPath": true,
+      "settingFollowRedirects": "global",
+      "_type": "request"
+    },
+    {
+      "_id": "req_list_suppliers",
+      "parentId": "fld_suppliers",
+      "modified": 1774607400000,
+      "created": 1774607400000,
+      "url": "{{ base_url }}/suppliers",
+      "name": "List Suppliers",
+      "description": "",
+      "method": "GET",
+      "body": {},
+      "parameters": [],
+      "headers": [],
+      "authentication": {},
+      "metaSortKey": 1774607400600,
+      "isPrivate": false,
+      "settingStoreCookies": true,
+      "settingSendCookies": true,
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingRebuildPath": true,
+      "settingFollowRedirects": "global",
+      "_type": "request"
+    },
+    {
+      "_id": "fld_links",
+      "parentId": "wrk_mycode",
+      "modified": 1774607400000,
+      "created": 1774607400000,
+      "name": "Product Suppliers",
+      "description": "",
+      "environment": {},
+      "environmentPropertyOrder": null,
+      "metaSortKey": 1774607400700,
+      "_type": "request_group"
+    },
+    {
+      "_id": "req_link",
+      "parentId": "fld_links",
+      "modified": 1774607400000,
+      "created": 1774607400000,
+      "url": "{{ base_url }}/product-suppliers",
+      "name": "Associate Product Supplier",
+      "description": "",
+      "method": "POST",
+      "body": {
+        "mimeType": "application/json",
+        "text": "{\n  \"productId\": 1,\n  \"supplierId\": 1\n}"
+      },
+      "parameters": [],
+      "headers": [
+        {
+          "name": "Content-Type",
+          "value": "application/json"
+        }
+      ],
+      "authentication": {},
+      "metaSortKey": 1774607400800,
+      "isPrivate": false,
+      "settingStoreCookies": true,
+      "settingSendCookies": true,
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingRebuildPath": true,
+      "settingFollowRedirects": "global",
+      "_type": "request"
+    },
+    {
+      "_id": "req_suppliers_by_product",
+      "parentId": "fld_links",
+      "modified": 1774607400000,
+      "created": 1774607400000,
+      "url": "{{ base_url }}/product-suppliers/products/1/suppliers",
+      "name": "Get Suppliers By Product",
+      "description": "",
+      "method": "GET",
+      "body": {},
+      "parameters": [],
+      "headers": [],
+      "authentication": {},
+      "metaSortKey": 1774607400900,
+      "isPrivate": false,
+      "settingStoreCookies": true,
+      "settingSendCookies": true,
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingRebuildPath": true,
+      "settingFollowRedirects": "global",
+      "_type": "request"
+    },
+    {
+      "_id": "req_products_by_supplier",
+      "parentId": "fld_links",
+      "modified": 1774607400000,
+      "created": 1774607400000,
+      "url": "{{ base_url }}/product-suppliers/suppliers/1/products",
+      "name": "Get Products By Supplier",
+      "description": "",
+      "method": "GET",
+      "body": {},
+      "parameters": [],
+      "headers": [],
+      "authentication": {},
+      "metaSortKey": 1774607401000,
+      "isPrivate": false,
+      "settingStoreCookies": true,
+      "settingSendCookies": true,
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingRebuildPath": true,
+      "settingFollowRedirects": "global",
+      "_type": "request"
+    }
+  ]
+}

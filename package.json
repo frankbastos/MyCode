@@ -1,21 +1,50 @@
 {
   "name": "mycode",
   "version": "1.0.0",
-  "description": "FACULDADE GRAN (https://faculdade.grancursosonline.com.br/)",
-  "main": "app.js",
+  "description": "Projeto Disciplina Projeto Integrador",
+  "private": true,
+  "main": "dist/main.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "tsc -p tsconfig.build.json",
+    "start": "node dist/main.js",
+    "start:dev": "ts-node -r tsconfig-paths/register src/main.ts"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/frankbastos/MyCode.git"
   },
-  "keywords": [],
-  "author": "",
+  "keywords": [
+    "nestjs",
+    "sqlite",
+    "backend"
+  ],
+  "author": "frankbastos",
   "license": "ISC",
   "type": "commonjs",
   "bugs": {
     "url": "https://github.com/frankbastos/MyCode/issues"
   },
-  "homepage": "https://github.com/frankbastos/MyCode#readme"
+  "homepage": "https://github.com/frankbastos/MyCode#readme",
+  "dependencies": {
+    "@nestjs/common": "^11.1.6",
+    "@nestjs/core": "^11.1.6",
+    "@nestjs/platform-express": "^11.1.6",
+    "@nestjs/typeorm": "^11.0.0",
+    "class-transformer": "^0.5.1",
+    "class-validator": "^0.14.2",
+    "reflect-metadata": "^0.2.2",
+    "rxjs": "^7.8.2",
+    "sqlite3": "^5.1.7",
+    "typeorm": "^0.3.27"
+  },
+  "devDependencies": {
+    "@nestjs/cli": "^11.0.10",
+    "@nestjs/schematics": "^11.0.9",
+    "@nestjs/testing": "^11.1.6",
+    "@types/express": "^5.0.3",
+    "@types/node": "^24.5.2",
+    "ts-node": "^10.9.2",
+    "tsconfig-paths": "^4.2.0",
+    "typescript": "^5.9.2"
+  }
 }
